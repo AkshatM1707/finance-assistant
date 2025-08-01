@@ -192,43 +192,39 @@ export default function Dashboard() {
           </Card>
         </div>
 
-        {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Quick Actions */}
-          <div className="lg:col-span-1">
-            <Card>
-              <CardHeader>
-                <CardTitle>Quick Actions</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <Button 
-                    className="w-full" 
-                    onClick={() => router.push('/transactions')}
-                  >
-                    <TrendingUp className="w-4 h-4 mr-2" />
-                    Add Transaction
-                  </Button>
-                  <Button 
-                    variant="outline"
-                    className="w-full" 
-                    onClick={() => router.push('/receipts')}
-                  >
-                    <Activity className="w-4 h-4 mr-2" />
-                    Upload Receipt
-                  </Button>
-                  <Button 
-                    variant="outline"
-                    className="w-full" 
-                    onClick={() => router.push('/analytics')}
-                  >
-                    <TrendingDown className="w-4 h-4 mr-2" />
-                    View Analytics
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+        {/* Quick Actions */}
+  <div className="lg:col-span-1">
+    <Card className="bg-white shadow-md border border-gray-200 rounded-2xl">
+      <CardHeader className="bg-gray-100 rounded-t-2xl">
+        <CardTitle className="text-gray-800 text-lg font-semibold">Quick Actions</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3 bg-white rounded-b-2xl p-4">
+        <Button
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition"
+          onClick={() => router.push('/transactions')}
+        >
+          <TrendingUp className="w-4 h-4 mr-2" />
+          Add Transaction
+        </Button>
+        <Button
+          variant="outline"
+          className="w-full border-gray-300 hover:bg-gray-100 text-gray-800 font-medium py-2 px-4 rounded-md transition"
+          onClick={() => router.push('/receipts')}
+        >
+          <Activity className="w-4 h-4 mr-2" />
+          Upload Receipt
+        </Button>
+        <Button
+          variant="outline"
+          className="w-full border-gray-300 hover:bg-gray-100 text-gray-800 font-medium py-2 px-4 rounded-md transition"
+          onClick={() => router.push('/analytics')}
+        >
+          <TrendingDown className="w-4 h-4 mr-2" />
+          View Analytics
+        </Button>
+      </CardContent>
+    </Card>
+
 
           {/* Recent Transactions */}
           <div className="lg:col-span-2">

@@ -339,10 +339,10 @@ export default function UserDashboard({ params }) {
                              </AvatarFallback>
                            </Avatar>
                            <div>
-                             <p className="font-medium text-foreground">{transaction.description}</p>
+                             <p className="font-medium text-gray-800">{transaction.description}</p>
                              <div className="flex items-center gap-2">
                                <Badge variant="secondary">{transaction.category}</Badge>
-                               <span className="text-sm text-muted-foreground">
+                               <span className="text-sm text-gray-500">
                                  {new Date(transaction.date).toLocaleDateString()}
                                </span>
                              </div>
@@ -373,7 +373,7 @@ export default function UserDashboard({ params }) {
             
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Type</label>
+                <label className="block text-sm font-medium text-olive-green mb-2">Type</label>
                 <div className="flex space-x-2">
                   <Button 
                     type="button"
@@ -395,7 +395,7 @@ export default function UserDashboard({ params }) {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Description</label>
+                <label className="block text-sm font-medium text-olive-green mb-2">Description</label>
                 <Input
                   name="description"
                   value={formData.description}
@@ -408,7 +408,7 @@ export default function UserDashboard({ params }) {
               {/* Show category dropdown only for expenses */}
               {formData.type === 'expense' && (
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-2">Category</label>
+                  <label className="block text-sm font-medium text-olive-green mb-2">Category</label>
                   <Select value={formData.category} onValueChange={(value) => setFormData({...formData, category: value})}>
                     <SelectTrigger>
                       <SelectValue placeholder="Select category" />
@@ -425,7 +425,7 @@ export default function UserDashboard({ params }) {
               )}
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Amount (₹)</label>
+                <label className="block text-sm font-medium text-olive-green mb-2">Amount (₹)</label>
                 <Input
                   type="number"
                   name="amount"
@@ -438,7 +438,7 @@ export default function UserDashboard({ params }) {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Date</label>
+                <label className="block text-sm font-medium text-olive-green mb-2">Date</label>
                 <Input
                   type="date"
                   name="date"
