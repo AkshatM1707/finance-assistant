@@ -21,3 +21,6 @@ export async function connectToDatabase() {
   global.mongoose = cached;
   return cached.conn;
 }
+
+// Default export alias for backward compatibility
+export default connectToDatabase;
