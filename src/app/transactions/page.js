@@ -288,7 +288,7 @@ export default function Transactions() {
       onClick={() => setActiveFilter(filter.id)}
       className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
         activeFilter === filter.id
-          ? "bg-primary text-primary-foreground"
+          ? "bg-primary text-gray-800"
           : "bg-muted text-gray-800 hover:bg-muted/80"
       }`}
     >
