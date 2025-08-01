@@ -57,20 +57,15 @@ export default function HomePage() {
             patterns, and get insights that help you make smarter money
             decisions.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
-              href="/register"
-              className="bg-primary text-primary-foreground px-8 py-4 rounded-xl text-lg font-semibold hover:bg-primary/90 transition-all duration-200 transform hover:-translate-y-1"
-            >
-              Start Tracking Now
-            </Link>
-            <Link
-              href="/login"
-              className="border-2 border-border text-foreground px-8 py-4 rounded-xl text-lg font-semibold hover:border-primary hover:text-primary transition-all duration-200"
-            >
-              Sign In
-            </Link>
-          </div>
+          <div className="flex justify-center mt-8">
+  <Link
+    href="/login"
+    className="border-2 border-border text-foreground px-8 py-4 rounded-xl text-lg font-semibold hover:border-primary hover:text-primary transition-all duration-200"
+  >
+    Sign In
+  </Link>
+</div>
+
         </div>
       </section>
 
@@ -186,11 +181,12 @@ export default function HomePage() {
             financial future.
           </p>
           <Link
-            href="/register"
-            className="bg-background text-foreground px-8 py-4 rounded-xl text-lg font-semibold hover:bg-background/90 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block"
-          >
-            Get Started Today
-          </Link>
+  href="/register"
+  className="bg-foreground text-background px-8 py-4 rounded-xl text-lg font-semibold hover:bg-foreground/90 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-block"
+>
+  Get Started Today
+</Link>
+
         </div>
       </section>
 
