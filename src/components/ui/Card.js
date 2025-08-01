@@ -5,12 +5,12 @@ export default function Card({
   hover = false,
   ...props 
 }) {
-  const baseClasses = "gradient-card rounded-2xl shadow-card";
-  const hoverClasses = hover ? "hover:shadow-glow transition-all duration-200" : "";
+  const baseClasses = "bg-card border border-border rounded-xl shadow";
+  const hoverClasses = hover ? "hover:shadow-md transition-all duration-200" : "";
   
   return (
     <div className={`${baseClasses} ${padding} ${hoverClasses} ${className}`} {...props}>
       {children}
     </div>
   );
-} 
+}
