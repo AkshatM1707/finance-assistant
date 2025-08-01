@@ -12,7 +12,12 @@ This is a simple yet powerful finance tracking application built to help you tak
 ## Screenshots
 
 I'll be adding some screenshots here soon to show you what the app looks like in action!
-
+![alt text](image1.png)
+![alt text](image2.png)
+![alt text](image3.png)
+![alt text](image4.png)
+![alt text](image5.png)
+![alt text](image6.png)
 ## Getting Started
 
 Ready to give it a try? Just follow these simple steps:
