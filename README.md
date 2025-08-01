@@ -28,7 +28,16 @@ Ready to give it a try? Just follow these simple steps:
     npm install
     ```
 
-3.  **Run the development server:**
+3.  **Set up your environment variables:**
+
+    Copy the `.env.example` file to a new file called `.env.local`:
+    ```bash
+    cp .env.example .env.local
+    ```
+
+    Then, open `.env.local` and replace the placeholder values with your own MongoDB connection string.
+
+4.  **Run the development server:**
     ```bash
     npm run dev
     ```

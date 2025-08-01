@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Button } from '../ui/button';
@@ -9,23 +9,35 @@ import { Menu, X, LogOut, Wallet } from 'lucide-react';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [user, setUser] = useState(null);
   const router = useRouter();
 
-  /**
-   * Handles user logout by clearing authentication and redirecting to login
-   */
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await fetch('/api/auth/me');
+        if (response.ok) {
+          const userData = await response.json();
+          setUser(userData);
+        }
+      } catch (error) {
+        console.error('Failed to fetch user:', error);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
+  const dashboardUrl = user ? `/${user.userId}/user-dashboard` : '/login';
+
   const handleLogout = async () => {
     try {
-      // Clear the auth token cookie by calling logout API
       await fetch('/api/auth/logout', {
         method: 'POST',
       });
-      
-      // Redirect to login page
       router.push('/login');
     } catch (error) {
       console.error('Logout error:', error);
-      // Even if API call fails, redirect to login
       router.push('/login');
     }
   };
@@ -50,7 +62,7 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              <Link href="/dashboard" className="px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-black/10" style={{ color: 'hsl(var(--navbar-foreground))' }}>
+              <Link href={dashboardUrl} className="px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-black/10" style={{ color: 'hsl(var(--navbar-foreground))' }}>
                 Dashboard
               </Link>
               <Link href="/transactions" className="px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-black/10" style={{ color: 'hsl(var(--navbar-foreground))' }}>
@@ -74,16 +86,16 @@ export default function Navbar() {
                   <Button variant="ghost" className="relative h-8 w-8 rounded-full">
                     <Avatar className="h-8 w-8">
                       <AvatarImage src="/avatars/01.png" alt="@user" />
-                      <AvatarFallback>U</AvatarFallback>
+                      <AvatarFallback>{user ? user.email.charAt(0).toUpperCase() : 'U'}</AvatarFallback>
                     </Avatar>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56" align="end" forceMount>
                   <DropdownMenuLabel className="font-normal">
                     <div className="flex flex-col space-y-1">
-                      <p className="text-sm font-medium leading-none">User</p>
+                      <p className="text-sm font-medium leading-none">{user ? user.firstName : 'User'}</p>
                       <p className="text-xs leading-none text-muted-foreground">
-                        user@example.com
+                        {user ? user.email : 'user@example.com'}
                       </p>
                     </div>
                   </DropdownMenuLabel>
@@ -117,7 +129,7 @@ export default function Navbar() {
       {isMenuOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background border-t">
-            <Link href="/dashboard" className="text-muted-foreground hover:text-foreground block px-3 py-2 rounded-md text-base font-medium">
+            <Link href={dashboardUrl} className="text-muted-foreground hover:text-foreground block px-3 py-2 rounded-md text-base font-medium">
               Dashboard
             </Link>
             <Link href="/transactions" className="text-muted-foreground hover:text-foreground block px-3 py-2 rounded-md text-base font-medium">
