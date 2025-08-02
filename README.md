@@ -18,6 +18,9 @@ I'll be adding some screenshots here soon to show you what the app looks like in
 ![alt text](image4.png)
 ![alt text](image5.png)
 ![alt text](image6.png)
+
+## Video
+[<!-- Uploading "Typeface.mp4"... -->](https://github.com/user-attachments/assets/57fd05e7-7ec0-4428-ad1d-68130a3c6fc2)
 ## Getting Started
 
 Ready to give it a try? Just follow these simple steps:
