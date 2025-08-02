@@ -27,7 +27,7 @@ Ready to give it a try? Just follow these simple steps:
 
 1.  **Clone the project:**
     ```bash
-    git clone <repository-url>
+    git clone git@github.com:AkshatM1707/finance-assistant.git
     cd finance-assistant
     ```
 
